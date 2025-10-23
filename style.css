@@ -1,0 +1,65 @@
+body{
+    background-color: #ddd;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    background-color: #056765;
+    border-radius: 20px;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+}
+h2{
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.create-list{
+    display: flex;
+    border-radius: 16px;
+}
+.create-list input{
+    padding: 16px;
+    flex: 1;
+    border-radius: 16px;
+}
+.create-btn{
+    background-color: #086b98;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 20px;
+    border-radius: 16px;
+}
+.listitems{
+    color: #fff;
+    font-size: 18px;
+}
+.listitems li{
+    list-style: none;
+    line-height: 2.5;
+    position: relative;
+}
+.listitems li::before{
+    content: '☐';
+    font-size: 16px;
+    padding-right: 12px;
+}
+.listitems>li.checked::before{
+    content: '☑';
+    font-size: 16px;
+    padding-right: 12px;
+}
+.listitems li.checked{
+    text-decoration: line-through;
+}
+.del-btn{
+    background-color: #040404;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    position: absolute;
+    right: 10px;
+}
