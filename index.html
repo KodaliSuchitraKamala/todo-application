@@ -9,48 +9,14 @@
 <body>
     <div class="container">
         <h2>To Do List</h2>
-        <div class="create-list">
-            <input type="text" id="listcreate">
-            <button id="create-btn">Add</button>
+        <p id="loading-message" class="message" style="display: none;">Loading todos...</p>
+        <p id="error-message" class="message error" style="display: none;">Failed to load todos.</p>
+        <div class="input-group">
+            <input id="taskInput" type="text" placeholder="Enter a new task" />
+            <button id="addTaskButton">Add</button>
         </div>
-        <ul class="listitems"></ul>
+        <ul id="taskList"></ul>
     </div>
-    <script>
-        let allList = document.querySelector('.listitems');
-        let createList = document.getElementById('listcreate');
-        let createBtn = document.getElementById('create-btn');
-        createBtn.addEventListener('click', function() {
-            if(createList.value === "") {
-                alert('Enter today work task');
-            } else {
-                let list = document.createElement('li');
-                list.innerText = createList.value;
-                let spanbtn = document.createElement('span');
-                spanbtn.className = 'del-btn';
-                spanbtn.innerText = '𐄂';
-                list.appendChild(spanbtn);
-                allList.appendChild(list);
-            }
-            createList.value = "";
-            savePresentData()
-        });
-        allList.addEventListener('click', function(e) {
-            console.log(e);
-            if(e.target.tagName === 'LI') {
-                e.target.classList.toggle('checked');
-                savePresentData()
-            } else if(e.target.tagName === 'SPAN') {
-                e.target.parentElement.remove();
-                savePresentData()
-            }
-        });
-        function savePresentData() {
-            localStorage.setItem('data', allList.innerHTML);
-        }
-        function showSavedData() {
-            allList.innerHTML = localStorage.getitem('data');
-        }
-        showSavedData();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
